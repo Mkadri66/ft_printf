@@ -6,11 +6,13 @@
 #    By: mkadri <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/08 20:28:18 by mkadri            #+#    #+#              #
-#    Updated: 2023/11/08 20:37:25 by mkadri           ###   ########.fr        #
+#    Updated: 2023/11/11 18:02:22 by mkadri           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			= libftprintf.a
+SRCS  			= ft_printf.c
+
+OBJS			= $(SRCS:.c=.o)
 
 CC				= gcc
 RM				= rm -f
@@ -20,3 +22,19 @@ LIBFT_PATH		= ./libft
 LIBFT			= ${LIBFT_PATH}/libft.a
 
 SRCS			= ft_printf.c
+
+NAME			= libftprintf.a
+
+all:			$(NAME)
+
+$(NAME):		$(OBJS)
+				ar rcs $(NAME) $(OBJS)
+clean:
+				$(RM) $(OBJS)
+
+fclean:			clean
+				$(RM) $(NAME)
+
+re:				fclean $(NAME)
+
+.PHONY:			all clean fclean re bonus
