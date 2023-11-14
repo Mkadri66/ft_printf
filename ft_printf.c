@@ -6,32 +6,11 @@
 /*   By: mkadri <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 20:28:41 by mkadri            #+#    #+#             */
-/*   Updated: 2023/11/11 19:17:19 by mkadri           ###   ########.fr       */
+/*   Updated: 2023/11/14 17:29:28 by mkadri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-int	print_char(int c)
-{
-	write(1, &c, 1);
-	return(1);
-}
-
-int	print_str(char *str)
-{
-	int	count;
-
-	count = 0;
-	if(!str)
-		return (0);
-	while(str[count] != '\0')
-	{
-		print_char((int)str[count]);
-		count++;
-	}
-	return (count);
-}
 
 int	print_digits(long n, int base)
 {
@@ -54,19 +33,27 @@ int	print_digits(long n, int base)
 	}
 	return (count);
 }
+
+
 int	print_format(char format, va_list args)
 {
 	int	count;
+	int is_upper;
 
 	count = 0;
+	is_upper = 0;
 	if (format == 'c')
 		count += print_char(va_arg(args, int));
 	else if (format == 's')
 		count += print_str(va_arg(args, char *));
-	else if (format == 'd')
+	else if (format == 'd' || format == 'i')
 		count += print_digits((long) (va_arg(args, int)), 10);
-	else if (format == 'x')
-		count += print_digits((long) (va_arg(args, unsigned int)), 16);
+	else if (format == 'x' || format == 'X' || format == 'p')
+	{
+		if (format == 'X')
+			is_upper = 1;
+		count += print_hexa((long) (va_arg(args, unsigned int)), 16, is_upper);
+	}
 	else
 		count += write(1, &format, 1);
 	return (count);
@@ -93,5 +80,8 @@ int	ft_printf(const char *str, ...)
 
 // int main()
 // {
-// 	ft_printf("Bonjour %s tous ", "a toutes et a ");
+// 	char *ptr = "Bonjour";
+	
+// 	printf("printf %p  \n", ptr);
+// 	ft_printf("ft_printf %p \n", ptr);
 // }

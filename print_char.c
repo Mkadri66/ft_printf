@@ -1,33 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   print_char.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkadri <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/11 18:08:57 by mkadri            #+#    #+#             */
-/*   Updated: 2023/11/14 17:24:40 by mkadri           ###   ########.fr       */
+/*   Created: 2023/11/14 17:22:44 by mkadri            #+#    #+#             */
+/*   Updated: 2023/11/14 17:22:56 by mkadri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_printf.h"
 
-
-#ifndef PRINTF_H
-# define PRINTF_H
-
-#include "./libft/libft.h"
-#include <stdarg.h>
-# include <string.h>
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdio.h>
-# include <ctype.h>
-# include <stddef.h>
-
-
-int	ft_printf(const char *str, ...);
-int	print_hexa(long n, int base, int is_upper);
-int	print_char(int c);
-int	print_str(char *str);
-
-#endif
+int	print_char(int c)
+{
+	write(1, &c, 1);
+	return (1);
+}

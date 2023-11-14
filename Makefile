@@ -6,7 +6,7 @@
 #    By: mkadri <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/08 20:28:18 by mkadri            #+#    #+#              #
-#    Updated: 2023/11/11 18:02:22 by mkadri           ###   ########.fr        #
+#    Updated: 2023/11/14 17:25:58 by mkadri           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ CFLAGS			= -Wall -Wextra -Werror -I.
 LIBFT_PATH		= ./libft
 LIBFT			= ${LIBFT_PATH}/libft.a
 
-SRCS			= ft_printf.c
+SRCS			= ft_printf.c print_char.c print_hexa.c print_str.c
 
 NAME			= libftprintf.a
 
