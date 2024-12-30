@@ -79,7 +79,7 @@ To compile the library, use the provided Makefile:
   make
   ```
     
-This generates a libft.a file (static library).
+This generates a ft_printf.a file (static library).
 
 You can execute the code with this command : 
   ```bash
