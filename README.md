@@ -54,6 +54,7 @@ The **ft_printf** project is a recreation of the `printf` function from the C st
 1. Clone this repository:
  ```bash
  git clone https://github.com/Mkadri66/ft_printf
+```
 
 2. Go to repository:
 ```bash
